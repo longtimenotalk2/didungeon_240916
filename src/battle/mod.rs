@@ -2,7 +2,7 @@
 
 // 顶层trait : Battle
 
-pub mod board;
+pub(super) mod board;
 
 use std::fmt::Debug;
 
