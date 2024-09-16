@@ -3,6 +3,7 @@
 // 顶层trait : Battle
 
 pub(super) mod board;
+pub(super) mod event;
 
 use std::fmt::Debug;
 
