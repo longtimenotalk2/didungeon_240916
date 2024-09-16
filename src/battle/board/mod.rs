@@ -8,7 +8,7 @@ use std::fmt::Debug;
 
 type Pos = i8;
 
-// #[derive(Debug, Default)]
+#[derive(Debug, Default, Deserialize, Serialize)]
 pub struct Board<R : Rng + Default + Debug> {
     units : BTreeMap<Pos, UnitData>,
     rng : R,
@@ -16,7 +16,7 @@ pub struct Board<R : Rng + Default + Debug> {
     av : i32,
 }
 
-// #[derive(Debug, Serialize, Deserialize, Default)]
+#[derive(Debug, Serialize, Deserialize, Default)]
 struct UnitData {
     name : String,
     is_enemy : bool,
@@ -29,7 +29,7 @@ struct UnitData {
     dir : Option<Dir>,
     restrain : bool,
     bound : HashMap<RopePart, Rope>,
-    state : HashSet<StateData>,
+    state : HashMap<State, StateDetail>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -38,7 +38,7 @@ enum Dir {
     Right,
 }
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq, Hash)]
 enum RopePart {
     Wrist,
     WristHang,
@@ -57,7 +57,12 @@ struct Rope {
     tightness : i32,
 }
 
+#[derive(Debug, Serialize, Deserialize, PartialEq, Eq, Hash)]
+enum State {
+    Stun,
+}
+
 #[derive(Debug, Serialize, Deserialize)]
-enum StateData {
-    Stun {duration : i32},
+struct StateDetail {
+    duration : i32,
 }
