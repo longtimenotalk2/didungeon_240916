@@ -2,12 +2,16 @@
 
 // 顶层trait : Battle
 
+pub mod board;
+
+use std::fmt::Debug;
+
 use serde::{Deserialize, Serialize};
 
-pub trait Battle : 
+pub trait Battle<'a> : 
     Debug +
     Serialize + 
-    Deserialize 
+    Deserialize<'a> 
 {
     fn exe(&mut self, cmd : impl BattleCommand) -> Result<impl BattleEvent, impl BattleCommandError>;
     fn show(&self) -> impl BattleShow;
