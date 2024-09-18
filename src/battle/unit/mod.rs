@@ -15,14 +15,12 @@ pub(super) struct Unit {
     is_enemy : bool,
     hp_max : i32,
     hp : i32,
-    toughness_max : i32,
-    toughness : i32,
-    tp : i32,
+    hurt : i32,
     is_stand : bool,
     dir : Option<Dir>,
-    restrain : bool,
     bound : HashMap<RopePart, Rope>,
     state : HashMap<State, StateDetail>,
+    scuffle : Option<(Id, ScuffleState)>,
 }
 
 
@@ -54,4 +52,13 @@ enum State {
 #[derive(Debug, Serialize, Deserialize, Clone)]
 struct StateDetail {
     duration : i32,
+}
+
+#[derive(Debug, Serialize, Deserialize, Clone)]
+enum ScuffleState {
+    Win,
+    Good,
+    Duaw,
+    Bad,
+    Loose,
 }
