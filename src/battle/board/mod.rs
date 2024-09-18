@@ -5,8 +5,6 @@ pub(super) mod test;
 mod turn;
 
 use std::collections::BTreeMap;
-
-use num_rational::Rational32;
 use serde::{Deserialize, Serialize};
 use std::fmt::Debug;
 
