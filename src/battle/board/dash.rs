@@ -1,6 +1,6 @@
-use crate::battle::{board::Dir, event::{Event, EventUnit}};
+use crate::battle::{common::{Dir, Id, Pos}, concept::{Event, EventUnit}};
 
-use super::{Board, Id, Pos};
+use super::Board;
 
 pub(super) trait BoardDash {
     fn dash_to_unit(&mut self, id : Id, id_to : Id) -> Event;
@@ -45,17 +45,17 @@ impl BoardDash for Board {
 
 #[cfg(test)]
 mod test {
-    use crate::battle::board::{Board, UnitData};
+    use crate::battle::board::{Board, Unit};
 
     use super::BoardDash;
 
     #[test]
     fn test() {
         let mut board = Board::default();
-        let a = UnitData::new_with_name_and_id("A", 0);
-        let b = UnitData::new_with_name_and_id("B", 1);
-        let c = UnitData::new_with_name_and_id("C", 2);
-        let d = UnitData::new_with_name_and_id("D", 3);
+        let a = Unit::new_with_name_and_id("A", 0);
+        let b = Unit::new_with_name_and_id("B", 1);
+        let c = Unit::new_with_name_and_id("C", 2);
+        let d = Unit::new_with_name_and_id("D", 3);
 
         board.insert_unit_data(0, a);
         board.insert_unit_data(1, b);

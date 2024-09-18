@@ -1,11 +1,11 @@
-use super::{Board, Id, Pos, UnitData};
+use crate::battle::{common::{Id, Pos}, unit::basic::UnitBasic};
+
+use super::Board;
 
 impl Board {
-
-
     pub(super) fn get_pos(&self, id : Id) -> Pos {
         for (pos, unit_data) in &self.units {
-            if unit_data.id == id {
+            if unit_data.id() == id {
                 return *pos
             }
         }

@@ -1,4 +1,4 @@
-use super::board::{Id, Pos};
+use super::common::{Id, Pos};
 
 pub(super) type Event = Vec<EventUnit>;
 
