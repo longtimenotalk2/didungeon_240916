@@ -6,6 +6,7 @@ mod turn;
 
 use std::collections::BTreeMap;
 
+use num_rational::Rational32;
 use serde::{Deserialize, Serialize};
 use std::fmt::Debug;
 
@@ -15,5 +16,5 @@ use super::{common::Pos, unit::Unit};
 pub struct Board {
     units : BTreeMap<Pos, Unit>,
     turn : i32,
-    av : f64,
+    av : i32,
 }

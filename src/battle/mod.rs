@@ -6,6 +6,7 @@ pub(super) mod board;
 pub(super) mod concept;
 pub(super) mod unit;
 pub(super) mod common;
+pub mod constant;
 
 use std::fmt::Debug;
 
