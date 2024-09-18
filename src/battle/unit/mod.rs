@@ -1,6 +1,7 @@
 #[cfg(test)]
 mod test;
 pub(super) mod basic;
+pub(super) mod attribute;
 
 use std::collections::HashMap;
 
@@ -13,7 +14,7 @@ pub(super) struct Unit {
     name : String,
     id : Id,
     is_enemy : bool,
-    hp_max : i32,
+    attribute : Attribute,
     hp : i32,
     hurt : i32,
     is_stand : bool,
@@ -23,7 +24,11 @@ pub(super) struct Unit {
     scuffle : Option<(Id, ScuffleState)>,
 }
 
-
+#[derive(Debug, Serialize, Deserialize, Default, Clone)]
+struct Attribute {
+    hp_max : i32,
+    spd : i32,
+}
 
 #[derive(Debug, Serialize, Deserialize, PartialEq, Eq, Hash, Clone)]
 enum RopePart {
