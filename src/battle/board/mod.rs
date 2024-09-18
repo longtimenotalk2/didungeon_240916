@@ -2,6 +2,7 @@ mod dash;
 mod basic;
 #[cfg(test)]
 pub(super) mod test;
+mod turn;
 
 use std::collections::BTreeMap;
 
@@ -14,5 +15,5 @@ use super::{common::Pos, unit::Unit};
 pub struct Board {
     units : BTreeMap<Pos, Unit>,
     turn : i32,
-    av : i32,
+    av : f64,
 }

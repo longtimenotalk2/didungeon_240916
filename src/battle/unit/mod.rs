@@ -17,6 +17,7 @@ pub(super) struct Unit {
     attribute : Attribute,
     hp : i32,
     hurt : i32,
+    av : Option<i32>,
     is_stand : bool,
     dir : Option<Dir>,
     bound : HashMap<RopePart, Rope>,
